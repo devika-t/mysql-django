@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Registered Members</h1>
+        <table  border="1">
+            <thead>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th colspan="2" id="mid">Action</th>
+            </thead>
+            {% for x in us %}
+            <tr>
+                <td>{{x.uid}}</td>
+                <td>{{x.uname}}</td>
+                <td>{{x.uemail}}</td>
+                <td>{{x.ucontact}}</td>
+                <td>
+                    <a href="update/{{x.uid}}"><button id="up">update</button></a>
+                </td>
+                <td>
+                    <a href="delete/{{x.uid}}"><button id="del">delete</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+        <a href="{% url 'userreg' %}"><button id="new3">Add</button></a>
+    </div>
+</body>
+
+</html>
